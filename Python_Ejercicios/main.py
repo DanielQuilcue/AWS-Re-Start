@@ -1,3 +1,4 @@
+# For para seleccionar las opciones
 def mostrar_menu(opciones):
     print('Seleccione una opción:')
     print()
@@ -5,16 +6,18 @@ def mostrar_menu(opciones):
         print(f' {clave}) {opciones[clave][0]}')
 
 
+# Leer opciones
 def leer_opcion(opciones):
     while (a := input('Opción: ')) not in opciones:
         print('Opción incorrecta, vuelva a intentarlo.')
     return a
 
 
+# Ejecutar las opciones dependiendo de la posición
 def ejecutar_opcion(opcion, opciones):
     opciones[opcion][1]()
 
-
+# Generando el menú dependiendo de opciones y salida de opción
 def generar_menu(opciones, opcion_salida):
     opcion = None
     while opcion != opcion_salida:
@@ -24,7 +27,7 @@ def generar_menu(opciones, opcion_salida):
         ejecutar_opcion(opcion, opciones)
         print()
 
-
+# Función para general menú
 def menu_principal():
     opciones = {
         '1': ('Opción 1', accion1),
@@ -36,6 +39,7 @@ def menu_principal():
     }
     generar_menu(opciones, '6')
 
+# Opciones de menú
 """ Problema 1
     Se necesita un programa que le permita a un usuario dada su edad actual conocer su edad en el
     año 2070. Diseñe un algoritmo que satisfaga este requerimiento e impleméntelo en Python.
@@ -116,9 +120,10 @@ def accion5():
 def accion6():
     print()
 
+# Función para salir de menú
 def salir():
     print('Saliendo..')
 
-
+# Función main
 if __name__ == '__main__':
     menu_principal()
