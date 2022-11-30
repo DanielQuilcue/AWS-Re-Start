@@ -35,9 +35,10 @@ def menu_principal():
         '3': ('Opción 3', accion3),
         '4': ('Opción 4', accion4),
         '5': ('Opción 5', accion5),
-        '6': ('Salir', salir)
+        '6': ('Opción 6', accion6),
+        '7': ('Salir', salir)
     }
-    generar_menu(opciones, '6')
+    generar_menu(opciones, '7')
 
 # Opciones de menú
 """ Problema 1
@@ -116,14 +117,52 @@ def accion5():
             n1 = n2
             n2 = update
             count += 1
+"""
+    Problema 6
+Tenemos guardado en un diccionario los códigos morse correspondientes a cada carácter.
+Escribir un programa que lea una palabra y la muestre usando el código morse.
 
+Input: Hola
+Output: .... --- .-.. .-
+"""
 def accion6():
-    print()
 
+    # Diccionario 
+    dicionario = {
+        'A': '.-', 'B': '-...', 'C': '-.-.',
+        'D': '-..', 'E': '.', 'F': '..-.',
+        'G': '--.', 'H': '....', 'I': '..',
+        'J': '.---', 'K': '-.-', 'L': '.-..',
+        'M': '--', 'N': '-.', 'O': '---',
+        'P': '.--.', 'Q': '--.-', 'R': '.-.',
+        'S': '...', 'T': '-', 'U': '..-',
+        'V': '...-', 'W': '.--', 'X': '-..-',
+        'Y': '-.--', 'Z': '--..', '1': '.----',
+        '2': '..---', '3': '...--', '4': '....-',
+        '5': '.....', '6': '-....', '7': '--...',
+        '8': '---..', '9': '----.', '0': '-----',
+        '.': '.-.-.-', ',': '--..--', ':': '---...',
+        ';': '-.-.-.', '?': '..--..', '!': '-.-.--',
+        '"': '.-..-.', "'": '.----.', '+': '.-.-.',
+        '-': '-....-', '/': '-..-.', '=': '-...-',
+        '_': '..--.-', '$': '...-..-', '@': '.--.-.',
+        '&': '.-...', '(': '-.--.', ')': '-.--.-'
+    }
+
+    palabras = input(" Ingrese una palabra o texto: ")
+    palabraMorce = ""
+
+    for i in palabras:
+        if i != " " and i.upper() in dicionario:
+            palabraMorce += dicionario[i.upper()]
+        else:
+            palabraMorce += i
+    print(f" El texto codificado es: {palabraMorce}")
+    
 # Función para salir de menú
 def salir():
     print('Saliendo..')
 
 # Función main
-if __name__ == '__main__':
+if __name__ == '__main__': 
     menu_principal()
